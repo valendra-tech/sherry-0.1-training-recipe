@@ -1,0 +1,46 @@
+[project]
+name = "sherry-0-1-training-recipe"
+version = "0.1.0"
+description = "Data preparation, SFT, and GRPO for Sherry 0.1's controllable reasoning effort."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "datasets==4.3.0",
+    "httpx>=0.27.2,<0.29",
+    "huggingface-hub>=1.5.0,<2",
+    "openai==1.50.0",
+    "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+# The training scripts use BF16 on NVIDIA GPUs. Keep the data tools usable
+# without CUDA on other platforms.
+train = [
+    "accelerate==1.14.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "bitsandbytes==0.50.2; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "peft==0.20.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "safetensors>=0.4.3,<1; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "sentencepiece==0.2.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "tensorboard==2.18.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "torch==2.8.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "torchao==0.17.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "torchvision==0.23.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "transformers==5.5.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "trl==0.24.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "unsloth==2026.9.2; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "unsloth-zoo==2026.9.1; sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
+
+[dependency-groups]
+dev = ["pytest==9.1.1"]
+
+[project.urls]
+Repository = "https://github.com/valendra-tech/sherry-0.1-training-recipe"
+Models = "https://huggingface.co/collections/valendra/sherry-01"
+Dataset = "https://huggingface.co/datasets/valendra/sherry-reasoning-effort-0.1-dataset"
+"Training write-up" = "https://qdiv0.com/en/blog/sherry-reasoning-effort"
+
+[tool.uv]
+package = false
