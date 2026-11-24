@@ -6,8 +6,10 @@ levels bias how the model reasons; they are not hard token limits or guarantees
 of correctness.
 
 This repository contains the data preparation, supervised fine-tuning (SFT),
-adapter evaluation, and Group Relative Policy Optimization (GRPO) scripts.
-The data and weights are hosted on Hugging Face, not in Git.
+adapter evaluation, and Group Relative Policy Optimization (GRPO) scripts,
+plus the original harness for comparing the published Sherry model with its
+base model. The training traces and weights are hosted on Hugging Face, not
+in Git.
 
 | Resource | What it contains |
 | --- | --- |
@@ -21,9 +23,10 @@ The data and weights are hosted on Hugging Face, not in Git.
 **Reproducibility scope:** You can run the training workflow below from the
 published traces. The current GRPO script loads the base weights in BF16,
 whereas the merged Preview's model card describes a QLoRA run. This checkout
-does not contain the weight-merging script or the benchmark harness for that
-release. It is a recipe for the method, not an exact rebuild of the published
-checkpoint or its benchmark results.
+does not contain the weight-merging script, so the training recipe is not an
+exact rebuild of the published checkpoint. The
+[benchmark harness](reasoning_levels/benchmark/README.md) evaluates the
+published weights directly.
 
 ## 1. Set up the environment
 
@@ -292,6 +295,32 @@ adapter with PEFT, follow the separate
 [SFT model card](https://huggingface.co/valendra/sherry-35b-a3b-0.1-sft-preview#usage),
 which shows how to insert the effort token explicitly.
 
+## 8. Benchmark Sherry against the base model
+
+The original evaluation ran Qwen3.6-35B-A3B and Sherry at `high` effort
+with BF16 vLLM, matching prompts and completion budgets, and one greedy
+generation per problem.
+
+| Benchmark | Metric | Qwen3.6-35B-A3B | Sherry (`high`) |
+| --- | --- | ---: | ---: |
+| MATH-500 | Math-Verify | 88.3% | 97.1% |
+| MATH-500 | Exact match | 25.2% | 56.2% |
+| GPQA-Diamond | Exact match | 57.1% | 78.3% |
+| Basic Python (40 tasks) | Pass@1 | 75.0% | 97.5% |
+| AIME 2025 (preliminary) | Exact match | 63.3% | 50.0% |
+
+On GPQA-Diamond, mean completion length fell from 20,023 to 7,534 tokens
+(about 62% fewer). The MATH-500 Math-Verify percentages cover scoreable
+samples, not all 500 examples. AIME 2025 is under review; the results are
+not a definitive regression. These are controlled results for this preview,
+not leaderboard comparisons.
+
+See the [benchmark guide](reasoning_levels/benchmark/README.md) for `uv`
+setup, dataset revisions, and step-by-step run commands. The archived
+[Markdown report](reasoning_levels/benchmark/reports/2026-09-18-sherry-high-vs-base.md)
+and [JSON summary](reasoning_levels/benchmark/reports/2026-09-18-sherry-high-vs-base.json)
+contain sample counts, paired intervals, and token statistics.
+
 ## Testing and optional utilities
 
 Run the basic tests without a GPU or network access after `uv sync --locked`:
@@ -331,4 +360,5 @@ ignores `.env` files, `data/`, `checkpoints/`, and the virtual environment.
 The code and documentation in this repository are released under the
 [MIT License](LICENSE). The Hugging Face models, adapters, and datasets
 are separate artifacts governed by their own licenses. See the linked
-model and dataset cards for terms and attribution.
+model and dataset cards for terms and attribution, and
+[third-party notices](THIRD_PARTY_NOTICES.md) for the adapted benchmark code.
