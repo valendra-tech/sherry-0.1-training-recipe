@@ -1,0 +1,612 @@
+[
+  {
+    "problem_id": "code-0001",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef add(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n```",
+    "function_name": "add",
+    "tests": [
+      "assert add(1, 2) == 3",
+      "assert add(-1, 1) == 0",
+      "assert add(0, 0) == 0",
+      "assert add(100, -250) == -150",
+      "assert add(-5, -7) == -12"
+    ],
+    "reference": "def add(a, b):\n    return a + b"
+  },
+  {
+    "problem_id": "code-0002",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef first_and_last(items):\n    \"\"\"Return a list containing the first and last elements of items.\n\n    If items is empty, return an empty list. For a single-element list,\n    the first and last element are the same value.\n    \"\"\"\n```",
+    "function_name": "first_and_last",
+    "tests": [
+      "assert first_and_last([1, 2, 3]) == [1, 3]",
+      "assert first_and_last([7]) == [7, 7]",
+      "assert first_and_last([]) == []",
+      "assert first_and_last([\"a\", \"b\", \"c\", \"d\"]) == [\"a\", \"d\"]",
+      "assert first_and_last([None, False]) == [None, False]"
+    ],
+    "reference": "def first_and_last(items):\n    if not items:\n        return []\n    return [items[0], items[-1]]"
+  },
+  {
+    "problem_id": "code-0003",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef count_vowels(text):\n    \"\"\"Return the number of ASCII vowel letters in text.\n\n    Count the letters a, e, i, o, u in both lowercase and uppercase form.\n    All other characters are ignored.\n    \"\"\"\n```",
+    "function_name": "count_vowels",
+    "tests": [
+      "assert count_vowels(\"hello\") == 2",
+      "assert count_vowels(\"AEIOU\") == 5",
+      "assert count_vowels(\"\") == 0",
+      "assert count_vowels(\"rhythm\") == 0",
+      "assert count_vowels(\"Queue\") == 4",
+      "assert count_vowels(\"A a!\") == 2"
+    ],
+    "reference": "def count_vowels(text):\n    return sum(1 for ch in text.lower() if ch in \"aeiou\")"
+  },
+  {
+    "problem_id": "code-0004",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef reverse_words(sentence):\n    \"\"\"Return the words of sentence in reverse order joined by single spaces.\n\n    Split sentence on runs of whitespace (as str.split does with no\n    arguments). If sentence is empty or contains only whitespace, return an\n    empty string.\n    \"\"\"\n```",
+    "function_name": "reverse_words",
+    "tests": [
+      "assert reverse_words(\"one two three\") == \"three two one\"",
+      "assert reverse_words(\"hello\") == \"hello\"",
+      "assert reverse_words(\"\") == \"\"",
+      "assert reverse_words(\"   \") == \"\"",
+      "assert reverse_words(\"  a   b  \") == \"b a\""
+    ],
+    "reference": "def reverse_words(sentence):\n    return \" \".join(reversed(sentence.split()))"
+  },
+  {
+    "problem_id": "code-0005",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef swap_case(text):\n    \"\"\"Return text with lowercase letters uppercased and uppercase lowercased.\n\n    Non-letter characters are unchanged. The result is the same as calling\n    str.swapcase() on text.\n    \"\"\"\n```",
+    "function_name": "swap_case",
+    "tests": [
+      "assert swap_case(\"Hello\") == \"hELLO\"",
+      "assert swap_case(\"ABC\") == \"abc\"",
+      "assert swap_case(\"abc\") == \"ABC\"",
+      "assert swap_case(\"\") == \"\"",
+      "assert swap_case(\"a1 B2!\") == \"A1 b2!\""
+    ],
+    "reference": "def swap_case(text):\n    return text.swapcase()"
+  },
+  {
+    "problem_id": "code-0006",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef max_or_none(nums):\n    \"\"\"Return the largest value in the list nums, or None if nums is empty.\"\"\"\n```",
+    "function_name": "max_or_none",
+    "tests": [
+      "assert max_or_none([1, 5, 3]) == 5",
+      "assert max_or_none([-10, -3, -20]) == -3",
+      "assert max_or_none([]) is None",
+      "assert max_or_none([7]) == 7",
+      "assert max_or_none([2, 2, 2]) == 2"
+    ],
+    "reference": "def max_or_none(nums):\n    if not nums:\n        return None\n    return max(nums)"
+  },
+  {
+    "problem_id": "code-0007",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef count_occurrences(items, target):\n    \"\"\"Return how many elements of the list items are equal to target.\"\"\"\n```",
+    "function_name": "count_occurrences",
+    "tests": [
+      "assert count_occurrences([1, 2, 1, 1], 1) == 3",
+      "assert count_occurrences([\"a\", \"b\"], \"c\") == 0",
+      "assert count_occurrences([], 5) == 0",
+      "assert count_occurrences([None, None, 1], None) == 2",
+      "assert count_occurrences([True, False, True], True) == 2"
+    ],
+    "reference": "def count_occurrences(items, target):\n    return items.count(target)"
+  },
+  {
+    "problem_id": "code-0008",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef repeat_string(text, n):\n    \"\"\"Return text repeated n times.\n\n    If n is zero or negative, return an empty string.\n    \"\"\"\n```",
+    "function_name": "repeat_string",
+    "tests": [
+      "assert repeat_string(\"ab\", 3) == \"ababab\"",
+      "assert repeat_string(\"x\", 0) == \"\"",
+      "assert repeat_string(\"x\", -2) == \"\"",
+      "assert repeat_string(\"\", 5) == \"\"",
+      "assert repeat_string(\"go\", 1) == \"go\""
+    ],
+    "reference": "def repeat_string(text, n):\n    if n <= 0:\n        return \"\"\n    return text * n"
+  },
+  {
+    "problem_id": "code-0009",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef first_index(items, target):\n    \"\"\"Return the index of the first element of items equal to target.\n\n    Return -1 if no element is equal to target.\n    \"\"\"\n```",
+    "function_name": "first_index",
+    "tests": [
+      "assert first_index([\"a\", \"b\", \"a\"], \"a\") == 0",
+      "assert first_index([\"a\", \"b\", \"a\"], \"b\") == 1",
+      "assert first_index([1, 2, 3], 4) == -1",
+      "assert first_index([], 1) == -1",
+      "assert first_index([5, 5, 5], 5) == 0"
+    ],
+    "reference": "def first_index(items, target):\n    for i, item in enumerate(items):\n        if item == target:\n            return i\n    return -1"
+  },
+  {
+    "problem_id": "code-0010",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef odd_numbers(nums):\n    \"\"\"Return a new list with the odd integers from nums, preserving order.\n\n    An integer n is odd when n % 2 != 0, so negative odd integers are\n    included.\n    \"\"\"\n```",
+    "function_name": "odd_numbers",
+    "tests": [
+      "assert odd_numbers([1, 2, 3, 4]) == [1, 3]",
+      "assert odd_numbers([-3, -2, -1]) == [-3, -1]",
+      "assert odd_numbers([]) == []",
+      "assert odd_numbers([2, 4, 6]) == []",
+      "assert odd_numbers([0, 7, 9]) == [7, 9]"
+    ],
+    "reference": "def odd_numbers(nums):\n    return [n for n in nums if n % 2 != 0]"
+  },
+  {
+    "problem_id": "code-0011",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef sorted_values(d):\n    \"\"\"Return a new list with the values of dict d sorted in ascending order.\n\n    If d is empty, return an empty list.\n    \"\"\"\n```",
+    "function_name": "sorted_values",
+    "tests": [
+      "assert sorted_values({\"a\": 3, \"b\": 1, \"c\": 2}) == [1, 2, 3]",
+      "assert sorted_values({}) == []",
+      "assert sorted_values({\"x\": -1, \"y\": -5}) == [-5, -1]",
+      "assert sorted_values({\"only\": 9}) == [9]",
+      "assert sorted_values({\"a\": 2, \"b\": 2, \"c\": 2}) == [2, 2, 2]"
+    ],
+    "reference": "def sorted_values(d):\n    return sorted(d.values())"
+  },
+  {
+    "problem_id": "code-0012",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef merge_dicts(a, b):\n    \"\"\"Return a new dict combining the entries of dicts a and b.\n\n    When a key appears in both dicts, the value from b wins. The input dicts\n    are not modified.\n    \"\"\"\n```",
+    "function_name": "merge_dicts",
+    "tests": [
+      "assert merge_dicts({\"a\": 1}, {\"b\": 2}) == {\"a\": 1, \"b\": 2}",
+      "assert merge_dicts({\"a\": 1}, {\"a\": 2}) == {\"a\": 2}",
+      "assert merge_dicts({}, {\"x\": 1}) == {\"x\": 1}",
+      "assert merge_dicts({\"x\": 1}, {}) == {\"x\": 1}",
+      "assert merge_dicts({}, {}) == {}",
+      "assert merge_dicts({\"a\": 1, \"b\": 2}, {\"b\": 3, \"c\": 4}) == {\"a\": 1, \"b\": 3, \"c\": 4}"
+    ],
+    "reference": "def merge_dicts(a, b):\n    result = dict(a)\n    result.update(b)\n    return result"
+  },
+  {
+    "problem_id": "code-0013",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef sum_of_digits(n):\n    \"\"\"Return the sum of the decimal digits of the non-negative integer n.\n\n    sum_of_digits(0) is 0.\n    \"\"\"\n```",
+    "function_name": "sum_of_digits",
+    "tests": [
+      "assert sum_of_digits(0) == 0",
+      "assert sum_of_digits(5) == 5",
+      "assert sum_of_digits(123) == 6",
+      "assert sum_of_digits(9999) == 36",
+      "assert sum_of_digits(1000) == 1"
+    ],
+    "reference": "def sum_of_digits(n):\n    return sum(int(ch) for ch in str(n))"
+  },
+  {
+    "problem_id": "code-0014",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef join_with_dash(words):\n    \"\"\"Return the strings in words joined by a single hyphen \"-\".\n\n    If words is empty, return an empty string.\n    \"\"\"\n```",
+    "function_name": "join_with_dash",
+    "tests": [
+      "assert join_with_dash([\"a\", \"b\", \"c\"]) == \"a-b-c\"",
+      "assert join_with_dash([]) == \"\"",
+      "assert join_with_dash([\"solo\"]) == \"solo\"",
+      "assert join_with_dash([\"\", \"x\"]) == \"-x\"",
+      "assert join_with_dash([\"a\", \"\"]) == \"a-\""
+    ],
+    "reference": "def join_with_dash(words):\n    return \"-\".join(words)"
+  },
+  {
+    "problem_id": "code-0015",
+    "tier": "easy",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef is_non_decreasing(nums):\n    \"\"\"Return True if nums is sorted in non-decreasing order.\n\n    Equal adjacent values are allowed. An empty list and a list with a\n    single element are non-decreasing.\n    \"\"\"\n```",
+    "function_name": "is_non_decreasing",
+    "tests": [
+      "assert is_non_decreasing([1, 2, 2, 3]) is True",
+      "assert is_non_decreasing([3, 2, 1]) is False",
+      "assert is_non_decreasing([]) is True",
+      "assert is_non_decreasing([5]) is True",
+      "assert is_non_decreasing([1, 1, 1]) is True",
+      "assert is_non_decreasing([1, 3, 2]) is False"
+    ],
+    "reference": "def is_non_decreasing(nums):\n    return all(nums[i] <= nums[i + 1] for i in range(len(nums) - 1))"
+  },
+  {
+    "problem_id": "code-0016",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef binary_search(nums, target):\n    \"\"\"Return the index of target in the ascending sorted list nums.\n\n    nums contains distinct integers sorted in ascending order. Return -1 if\n    target does not appear in nums.\n    \"\"\"\n```",
+    "function_name": "binary_search",
+    "tests": [
+      "assert binary_search([1, 3, 5, 7], 3) == 1",
+      "assert binary_search([1, 3, 5, 7], 1) == 0",
+      "assert binary_search([1, 3, 5, 7], 7) == 3",
+      "assert binary_search([1, 3, 5, 7], 4) == -1",
+      "assert binary_search([], 1) == -1",
+      "assert binary_search([2], 2) == 0",
+      "assert binary_search([2], 3) == -1"
+    ],
+    "reference": "def binary_search(nums, target):\n    low, high = 0, len(nums) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if nums[mid] == target:\n            return mid\n        if nums[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1"
+  },
+  {
+    "problem_id": "code-0017",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef gcd(a, b):\n    \"\"\"Return the greatest common divisor of the non-negative integers a and b.\n\n    gcd(0, 0) is 0; gcd(a, 0) is a and gcd(0, b) is b.\n    \"\"\"\n```",
+    "function_name": "gcd",
+    "tests": [
+      "assert gcd(12, 18) == 6",
+      "assert gcd(18, 12) == 6",
+      "assert gcd(0, 0) == 0",
+      "assert gcd(7, 0) == 7",
+      "assert gcd(0, 7) == 7",
+      "assert gcd(13, 13) == 13",
+      "assert gcd(1, 1) == 1"
+    ],
+    "reference": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a"
+  },
+  {
+    "problem_id": "code-0018",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef is_prime(n):\n    \"\"\"Return True if the integer n is a prime number, and False otherwise.\n\n    Numbers less than 2 are not prime.\n    \"\"\"\n```",
+    "function_name": "is_prime",
+    "tests": [
+      "assert is_prime(2) is True",
+      "assert is_prime(3) is True",
+      "assert is_prime(4) is False",
+      "assert is_prime(1) is False",
+      "assert is_prime(0) is False",
+      "assert is_prime(-7) is False",
+      "assert is_prime(97) is True",
+      "assert is_prime(100) is False"
+    ],
+    "reference": "def is_prime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True"
+  },
+  {
+    "problem_id": "code-0019",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef to_roman(n):\n    \"\"\"Convert the integer n, with 1 <= n <= 3999, to a Roman numeral string.\n\n    Use the standard symbols I, V, X, L, C, D, M and the subtractive pairs\n    IV (4), IX (9), XL (40), XC (90), CD (400), and CM (900).\n    \"\"\"\n```",
+    "function_name": "to_roman",
+    "tests": [
+      "assert to_roman(1) == \"I\"",
+      "assert to_roman(4) == \"IV\"",
+      "assert to_roman(9) == \"IX\"",
+      "assert to_roman(40) == \"XL\"",
+      "assert to_roman(58) == \"LVIII\"",
+      "assert to_roman(1994) == \"MCMXCIV\"",
+      "assert to_roman(3999) == \"MMMCMXCIX\""
+    ],
+    "reference": "def to_roman(n):\n    table = [\n        (1000, \"M\"), (900, \"CM\"), (500, \"D\"), (400, \"CD\"),\n        (100, \"C\"), (90, \"XC\"), (50, \"L\"), (40, \"XL\"),\n        (10, \"X\"), (9, \"IX\"), (5, \"V\"), (4, \"IV\"), (1, \"I\"),\n    ]\n    result = \"\"\n    for value, symbol in table:\n        count, n = divmod(n, value)\n        result += symbol * count\n    return result"
+  },
+  {
+    "problem_id": "code-0020",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef is_balanced(s):\n    \"\"\"Return True if the bracket characters in s are balanced.\n\n    Only the characters \"(\", \")\", \"[\", \"]\", \"{\", \"}\" are considered; every\n    other character is ignored. Each opening bracket must be closed by the\n    matching type in properly nested order. The empty string is balanced.\n    \"\"\"\n```",
+    "function_name": "is_balanced",
+    "tests": [
+      "assert is_balanced(\"()\") is True",
+      "assert is_balanced(\"([{}])\") is True",
+      "assert is_balanced(\"(]\") is False",
+      "assert is_balanced(\"(()\") is False",
+      "assert is_balanced(\"\") is True",
+      "assert is_balanced(\"a(b)c[d]\") is True",
+      "assert is_balanced(\")(\") is False"
+    ],
+    "reference": "def is_balanced(s):\n    pairs = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n    stack = []\n    for ch in s:\n        if ch in \"([{\":\n            stack.append(ch)\n        elif ch in pairs:\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n    return not stack"
+  },
+  {
+    "problem_id": "code-0021",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef run_length_encode(s):\n    \"\"\"Return the run-length encoding of the string s.\n\n    Each maximal run of equal characters is encoded as the character\n    followed by the run length written in decimal. For example, \"aaabbc\"\n    becomes \"a3b2c1\". The empty string becomes the empty string.\n    \"\"\"\n```",
+    "function_name": "run_length_encode",
+    "tests": [
+      "assert run_length_encode(\"aaabbc\") == \"a3b2c1\"",
+      "assert run_length_encode(\"\") == \"\"",
+      "assert run_length_encode(\"a\") == \"a1\"",
+      "assert run_length_encode(\"abcd\") == \"a1b1c1d1\"",
+      "assert run_length_encode(\"aaaaaaaaaaaa\") == \"a12\"",
+      "assert run_length_encode(\"aabbaa\") == \"a2b2a2\""
+    ],
+    "reference": "def run_length_encode(s):\n    result = []\n    for ch in s:\n        if result and result[-1][0] == ch:\n            result[-1][1] += 1\n        else:\n            result.append([ch, 1])\n    return \"\".join(ch + str(count) for ch, count in result)"
+  },
+  {
+    "problem_id": "code-0022",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef merge_sorted(a, b):\n    \"\"\"Merge two ascending sorted lists of integers into one ascending list.\n\n    Duplicates are kept. The input lists are not modified.\n    \"\"\"\n```",
+    "function_name": "merge_sorted",
+    "tests": [
+      "assert merge_sorted([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]",
+      "assert merge_sorted([], [1, 2]) == [1, 2]",
+      "assert merge_sorted([1, 2], []) == [1, 2]",
+      "assert merge_sorted([], []) == []",
+      "assert merge_sorted([1, 1, 3], [1, 2]) == [1, 1, 1, 2, 3]",
+      "assert merge_sorted([5, 6], [1, 2]) == [1, 2, 5, 6]"
+    ],
+    "reference": "def merge_sorted(a, b):\n    return sorted(a + b)"
+  },
+  {
+    "problem_id": "code-0023",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef transpose(matrix):\n    \"\"\"Return the transpose of matrix as a new list of lists.\n\n    matrix is a list of rows of equal length. The result has one row per\n    column of matrix. An empty matrix returns an empty list.\n    \"\"\"\n```",
+    "function_name": "transpose",
+    "tests": [
+      "assert transpose([[1, 2], [3, 4]]) == [[1, 3], [2, 4]]",
+      "assert transpose([[1, 2, 3]]) == [[1], [2], [3]]",
+      "assert transpose([[1], [2], [3]]) == [[1, 2, 3]]",
+      "assert transpose([]) == []",
+      "assert transpose([[5]]) == [[5]]"
+    ],
+    "reference": "def transpose(matrix):\n    return [list(row) for row in zip(*matrix)]"
+  },
+  {
+    "problem_id": "code-0024",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef caesar_shift(text, k):\n    \"\"\"Shift every ASCII letter in text forward by k positions.\n\n    Lowercase letters remain lowercase and uppercase letters remain\n    uppercase. The shift is taken modulo 26 and k may be negative or larger\n    than 26. Characters that are not ASCII letters are unchanged.\n    \"\"\"\n```",
+    "function_name": "caesar_shift",
+    "tests": [
+      "assert caesar_shift(\"abc\", 1) == \"bcd\"",
+      "assert caesar_shift(\"xyz\", 3) == \"abc\"",
+      "assert caesar_shift(\"ABC\", 2) == \"CDE\"",
+      "assert caesar_shift(\"Hello, World!\", 0) == \"Hello, World!\"",
+      "assert caesar_shift(\"abc\", -1) == \"zab\"",
+      "assert caesar_shift(\"Az\", 1) == \"Ba\"",
+      "assert caesar_shift(\"abc\", 26) == \"abc\""
+    ],
+    "reference": "def caesar_shift(text, k):\n    result = []\n    for ch in text:\n        if \"a\" <= ch <= \"z\":\n            result.append(chr((ord(ch) - 97 + k) % 26 + 97))\n        elif \"A\" <= ch <= \"Z\":\n            result.append(chr((ord(ch) - 65 + k) % 26 + 65))\n        else:\n            result.append(ch)\n    return \"\".join(result)"
+  },
+  {
+    "problem_id": "code-0025",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef flatten_deep(nested):\n    \"\"\"Flatten an arbitrarily nested list of integers into a flat list.\n\n    Lists are flattened recursively; all other values are kept in order.\n    Tuples and other sequence types are not flattened, only lists. An empty\n    list returns an empty list.\n    \"\"\"\n```",
+    "function_name": "flatten_deep",
+    "tests": [
+      "assert flatten_deep([1, [2, [3, [4]]]]) == [1, 2, 3, 4]",
+      "assert flatten_deep([]) == []",
+      "assert flatten_deep([[], [[]]]) == []",
+      "assert flatten_deep([1, 2]) == [1, 2]",
+      "assert flatten_deep([[1], (2, 3)]) == [1, (2, 3)]",
+      "assert flatten_deep([[[5]]]) == [5]"
+    ],
+    "reference": "def flatten_deep(nested):\n    result = []\n    for item in nested:\n        if isinstance(item, list):\n            result.extend(flatten_deep(item))\n        else:\n            result.append(item)\n    return result"
+  },
+  {
+    "problem_id": "code-0026",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each word in text to its number of occurrences.\n\n    Words are produced by splitting text on runs of whitespace (as str.split\n    does with no arguments). Counting is case-sensitive. If text is empty or\n    contains only whitespace, return an empty dict.\n    \"\"\"\n```",
+    "function_name": "word_frequencies",
+    "tests": [
+      "assert word_frequencies(\"a b a\") == {\"a\": 2, \"b\": 1}",
+      "assert word_frequencies(\"\") == {}",
+      "assert word_frequencies(\"   \") == {}",
+      "assert word_frequencies(\"one\") == {\"one\": 1}",
+      "assert word_frequencies(\"A a\") == {\"A\": 1, \"a\": 1}"
+    ],
+    "reference": "def word_frequencies(text):\n    counts = {}\n    for word in text.split():\n        counts[word] = counts.get(word, 0) + 1\n    return counts"
+  },
+  {
+    "problem_id": "code-0027",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef sum_even_squares(nums):\n    \"\"\"Return the sum of the squares of the even integers in nums.\n\n    An integer n is even when n % 2 == 0. If nums contains no even integer,\n    return 0.\n    \"\"\"\n```",
+    "function_name": "sum_even_squares",
+    "tests": [
+      "assert sum_even_squares([1, 2, 3, 4]) == 20",
+      "assert sum_even_squares([1, 3]) == 0",
+      "assert sum_even_squares([]) == 0",
+      "assert sum_even_squares([-2, -3]) == 4",
+      "assert sum_even_squares([0, 5]) == 0",
+      "assert sum_even_squares([2, 2]) == 8"
+    ],
+    "reference": "def sum_even_squares(nums):\n    return sum(n * n for n in nums if n % 2 == 0)"
+  },
+  {
+    "problem_id": "code-0028",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef rotate_left(nums, k):\n    \"\"\"Return a new list with nums rotated left by k positions.\n\n    Rotation moves the first k elements to the end. k is a non-negative\n    integer and rotation is taken modulo len(nums), so k may be larger than\n    the length. An empty list returns an empty list. The input list is not\n    modified.\n    \"\"\"\n```",
+    "function_name": "rotate_left",
+    "tests": [
+      "assert rotate_left([1, 2, 3, 4, 5], 2) == [3, 4, 5, 1, 2]",
+      "assert rotate_left([1, 2, 3], 0) == [1, 2, 3]",
+      "assert rotate_left([1, 2, 3], 3) == [1, 2, 3]",
+      "assert rotate_left([1, 2, 3], 4) == [2, 3, 1]",
+      "assert rotate_left([], 5) == []",
+      "assert rotate_left([1], 100) == [1]"
+    ],
+    "reference": "def rotate_left(nums, k):\n    if not nums:\n        return []\n    k %= len(nums)\n    return nums[k:] + nums[:k]"
+  },
+  {
+    "problem_id": "code-0029",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef longest_word(text):\n    \"\"\"Return the first longest word in text.\n\n    Words are produced by splitting text on runs of whitespace. If several\n    words share the maximum length, return the one that appears first. If\n    text is empty or contains only whitespace, return None.\n    \"\"\"\n```",
+    "function_name": "longest_word",
+    "tests": [
+      "assert longest_word(\"cat elephant dog\") == \"elephant\"",
+      "assert longest_word(\"aa bb cc\") == \"aa\"",
+      "assert longest_word(\"\") is None",
+      "assert longest_word(\"   \") is None",
+      "assert longest_word(\"a bbb\") == \"bbb\"",
+      "assert longest_word(\"hello\") == \"hello\""
+    ],
+    "reference": "def longest_word(text):\n    words = text.split()\n    if not words:\n        return None\n    return max(words, key=len)"
+  },
+  {
+    "problem_id": "code-0030",
+    "tier": "medium",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef pairwise_sums(nums):\n    \"\"\"Return a list of the sums of adjacent pairs in nums.\n\n    result[i] is nums[i] + nums[i + 1], so the result has one element fewer\n    than nums. If nums has fewer than two elements, return an empty list.\n    \"\"\"\n```",
+    "function_name": "pairwise_sums",
+    "tests": [
+      "assert pairwise_sums([1, 2, 3, 4]) == [3, 5, 7]",
+      "assert pairwise_sums([5]) == []",
+      "assert pairwise_sums([]) == []",
+      "assert pairwise_sums([-1, 1]) == [0]",
+      "assert pairwise_sums([10, -10, 10]) == [0, 0]"
+    ],
+    "reference": "def pairwise_sums(nums):\n    return [nums[i] + nums[i + 1] for i in range(len(nums) - 1)]"
+  },
+  {
+    "problem_id": "code-0031",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef is_palindrome(s):\n    \"\"\"Return True if s reads the same forwards and backwards.\n\n    Consider only alphanumeric characters (those for which str.isalnum() is\n    True) and compare them case-insensitively (using str.lower()). All other\n    characters are ignored. The empty string and strings with no\n    alphanumeric characters are palindromes.\n    \"\"\"\n```",
+    "function_name": "is_palindrome",
+    "tests": [
+      "assert is_palindrome(\"A man, a plan, a canal: Panama\") is True",
+      "assert is_palindrome(\"race a car\") is False",
+      "assert is_palindrome(\"\") is True",
+      "assert is_palindrome(\"...\") is True",
+      "assert is_palindrome(\"No 'x' in Nixon\") is True",
+      "assert is_palindrome(\"ab\") is False",
+      "assert is_palindrome(\"Ünü\") is True",
+      "assert is_palindrome(\"aé\") is False"
+    ],
+    "reference": "def is_palindrome(s):\n    cleaned = [ch.lower() for ch in s if ch.isalnum()]\n    return cleaned == cleaned[::-1]"
+  },
+  {
+    "problem_id": "code-0032",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef slugify(text):\n    \"\"\"Convert text to a URL slug.\n\n    Lowercase the text, then replace every maximal run of characters that\n    are not ASCII letters a-z or ASCII digits 0-9 with a single hyphen, and\n    finally remove any leading and trailing hyphens. An empty result is\n    returned as an empty string.\n    \"\"\"\n```",
+    "function_name": "slugify",
+    "tests": [
+      "assert slugify(\"Hello, World!\") == \"hello-world\"",
+      "assert slugify(\"  Spaces  and--dashes \") == \"spaces-and-dashes\"",
+      "assert slugify(\"already-slug\") == \"already-slug\"",
+      "assert slugify(\"\") == \"\"",
+      "assert slugify(\"!!!\") == \"\"",
+      "assert slugify(\"CamelCase42\") == \"camelcase42\"",
+      "assert slugify(\"a_b\") == \"a-b\""
+    ],
+    "reference": "import re\n\n\ndef slugify(text):\n    return re.sub(r\"[^a-z0-9]+\", \"-\", text.lower()).strip(\"-\")"
+  },
+  {
+    "problem_id": "code-0033",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef parse_signed_int(s):\n    \"\"\"Parse the string s as a signed decimal integer.\n\n    s must be an optional \"+\" or \"-\" sign followed by one or more ASCII\n    digits 0-9. No other characters, whitespace, or underscores are allowed.\n    Leading zeros are allowed, and \"-0\" parses to 0. Return the integer\n    value, or None if s is not a valid signed decimal integer.\n    \"\"\"\n```",
+    "function_name": "parse_signed_int",
+    "tests": [
+      "assert parse_signed_int(\"42\") == 42",
+      "assert parse_signed_int(\"-42\") == -42",
+      "assert parse_signed_int(\"+42\") == 42",
+      "assert parse_signed_int(\"0\") == 0",
+      "assert parse_signed_int(\"-0\") == 0",
+      "assert parse_signed_int(\"007\") == 7",
+      "assert parse_signed_int(\"\") is None",
+      "assert parse_signed_int(\" 42\") is None",
+      "assert parse_signed_int(\"4a2\") is None",
+      "assert parse_signed_int(\"-\") is None",
+      "assert parse_signed_int(\"+\") is None",
+      "assert parse_signed_int(\"1_000\") is None"
+    ],
+    "reference": "def parse_signed_int(s):\n    if not s:\n        return None\n    body = s[1:] if s[0] in \"+-\" else s\n    if not body or not body.isascii() or not body.isdigit():\n        return None\n    value = int(body)\n    return -value if s[0] == \"-\" else value"
+  },
+  {
+    "problem_id": "code-0034",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef deep_merge(a, b):\n    \"\"\"Recursively merge the dicts a and b and return a new dict.\n\n    When a key exists in both dicts and both values are dicts, merge those\n    values recursively. Otherwise the value from b replaces the value from\n    a. Keys that appear in only one dict are copied as they are. The input\n    dicts are not modified.\n    \"\"\"\n```",
+    "function_name": "deep_merge",
+    "tests": [
+      "assert deep_merge({\"a\": 1}, {\"b\": 2}) == {\"a\": 1, \"b\": 2}",
+      "assert deep_merge({\"a\": {\"x\": 1}}, {\"a\": {\"y\": 2}}) == {\"a\": {\"x\": 1, \"y\": 2}}",
+      "assert deep_merge({\"a\": {\"x\": 1}}, {\"a\": 5}) == {\"a\": 5}",
+      "assert deep_merge({\"a\": 5}, {\"a\": {\"x\": 1}}) == {\"a\": {\"x\": 1}}",
+      "assert deep_merge({}, {\"a\": {\"b\": {\"c\": 1}}}) == {\"a\": {\"b\": {\"c\": 1}}}",
+      "assert deep_merge({\"a\": {\"x\": {\"y\": 1}}}, {\"a\": {\"x\": {\"z\": 2}}}) == {\"a\": {\"x\": {\"y\": 1, \"z\": 2}}}"
+    ],
+    "reference": "def deep_merge(a, b):\n    result = dict(a)\n    for key, value in b.items():\n        if key in result and isinstance(result[key], dict) and isinstance(value, dict):\n            result[key] = deep_merge(result[key], value)\n        else:\n            result[key] = value\n    return result"
+  },
+  {
+    "problem_id": "code-0035",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef top_k(items, k):\n    \"\"\"Return the k most frequent strings in the list items.\n\n    Return a list of (item, count) tuples ordered by count descending, then\n    by item ascending for ties. If k is greater than the number of distinct\n    items, return all of them. If k is zero or negative, return an empty\n    list.\n    \"\"\"\n```",
+    "function_name": "top_k",
+    "tests": [
+      "assert top_k([\"a\", \"b\", \"a\", \"c\", \"a\", \"b\"], 2) == [(\"a\", 3), (\"b\", 2)]",
+      "assert top_k([\"b\", \"a\"], 2) == [(\"a\", 1), (\"b\", 1)]",
+      "assert top_k([], 3) == []",
+      "assert top_k([\"a\"], 0) == []",
+      "assert top_k([\"a\"], -1) == []",
+      "assert top_k([\"a\", \"b\"], 5) == [(\"a\", 1), (\"b\", 1)]"
+    ],
+    "reference": "def top_k(items, k):\n    counts = {}\n    for item in items:\n        counts[item] = counts.get(item, 0) + 1\n    ordered = sorted(counts.items(), key=lambda pair: (-pair[1], pair[0]))\n    return ordered[:k] if k > 0 else []"
+  },
+  {
+    "problem_id": "code-0036",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef merge_intervals(intervals):\n    \"\"\"Merge overlapping and touching closed intervals.\n\n    intervals is a list of [start, end] integer pairs with start <= end, in\n    any order. Two intervals that overlap or share an endpoint are merged.\n    Return a new list of [start, end] pairs sorted by start. An empty input\n    list returns an empty list.\n    \"\"\"\n```",
+    "function_name": "merge_intervals",
+    "tests": [
+      "assert merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]) == [[1, 6], [8, 10], [15, 18]]",
+      "assert merge_intervals([[1, 2], [2, 3]]) == [[1, 3]]",
+      "assert merge_intervals([]) == []",
+      "assert merge_intervals([[5, 5]]) == [[5, 5]]",
+      "assert merge_intervals([[3, 4], [1, 2]]) == [[1, 2], [3, 4]]",
+      "assert merge_intervals([[1, 10], [2, 3]]) == [[1, 10]]",
+      "assert merge_intervals([[1, 2], [4, 5], [3, 4]]) == [[1, 2], [3, 5]]"
+    ],
+    "reference": "def merge_intervals(intervals):\n    merged = []\n    for start, end in sorted(intervals):\n        if merged and start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged"
+  },
+  {
+    "problem_id": "code-0037",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef snake_to_camel(s):\n    \"\"\"Convert the snake_case string s to camelCase.\n\n    Split s on underscores. The first part is lowercased. Every following\n    non-empty part is lowercased and then has its first character\n    uppercased. Empty parts contribute nothing. If s is empty, return an\n    empty string.\n    \"\"\"\n```",
+    "function_name": "snake_to_camel",
+    "tests": [
+      "assert snake_to_camel(\"hello_world\") == \"helloWorld\"",
+      "assert snake_to_camel(\"my_var_2\") == \"myVar2\"",
+      "assert snake_to_camel(\"already\") == \"already\"",
+      "assert snake_to_camel(\"\") == \"\"",
+      "assert snake_to_camel(\"_leading\") == \"Leading\"",
+      "assert snake_to_camel(\"trailing_\") == \"trailing\"",
+      "assert snake_to_camel(\"a__b\") == \"aB\"",
+      "assert snake_to_camel(\"HTTP_response\") == \"httpResponse\"",
+      "assert snake_to_camel(\"version_10_beta\") == \"version10Beta\""
+    ],
+    "reference": "def snake_to_camel(s):\n    parts = s.split(\"_\")\n    result = parts[0].lower()\n    for part in parts[1:]:\n        part = part.lower()\n        if part:\n            result += part[0].upper() + part[1:]\n    return result"
+  },
+  {
+    "problem_id": "code-0038",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef dedupe_ci(items):\n    \"\"\"Remove duplicate strings from items, ignoring case.\n\n    Two strings are duplicates when they are equal after str.lower() is\n    applied to both. Keep the first occurrence of each distinct string and\n    preserve the original order.\n    \"\"\"\n```",
+    "function_name": "dedupe_ci",
+    "tests": [
+      "assert dedupe_ci([\"Apple\", \"apple\", \"Banana\", \"APPLE\"]) == [\"Apple\", \"Banana\"]",
+      "assert dedupe_ci([]) == []",
+      "assert dedupe_ci([\"a\", \"b\", \"c\"]) == [\"a\", \"b\", \"c\"]",
+      "assert dedupe_ci([\"A\", \"a\", \"B\", \"b\"]) == [\"A\", \"B\"]",
+      "assert dedupe_ci([\"x\", \"X\", \"x\"]) == [\"x\"]"
+    ],
+    "reference": "def dedupe_ci(items):\n    seen = set()\n    result = []\n    for item in items:\n        key = item.lower()\n        if key not in seen:\n            seen.add(key)\n            result.append(item)\n    return result"
+  },
+  {
+    "problem_id": "code-0039",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef chunk_list(items, size):\n    \"\"\"Split items into consecutive chunks of length size.\n\n    size is a positive integer. The final chunk may be shorter than size.\n    Return a list of lists. If items is empty, return an empty list.\n    \"\"\"\n```",
+    "function_name": "chunk_list",
+    "tests": [
+      "assert chunk_list([1, 2, 3, 4, 5], 2) == [[1, 2], [3, 4], [5]]",
+      "assert chunk_list([1, 2, 3], 3) == [[1, 2, 3]]",
+      "assert chunk_list([1, 2, 3, 4], 5) == [[1, 2, 3, 4]]",
+      "assert chunk_list([], 2) == []",
+      "assert chunk_list([1], 1) == [[1]]",
+      "assert chunk_list([1, 2, 3, 4], 4) == [[1, 2, 3, 4]]"
+    ],
+    "reference": "def chunk_list(items, size):\n    return [items[i:i + size] for i in range(0, len(items), size)]"
+  },
+  {
+    "problem_id": "code-0040",
+    "tier": "tricky",
+    "prompt": "Complete the following Python function. Reply with the full function in a single Python code block.\n\n```python\ndef from_roman(s):\n    \"\"\"Parse a canonical Roman numeral and return its integer value.\n\n    A valid numeral uses only the uppercase symbols I, V, X, L, C, D, M, is\n    written in descending symbol value order except for the subtractive\n    pairs IV, IX, XL, XC, CD, and CM, and represents a value from 1 to 3999.\n    Return None for any string that is not a valid canonical numeral,\n    including the empty string and lowercase input.\n    \"\"\"\n```",
+    "function_name": "from_roman",
+    "tests": [
+      "assert from_roman(\"I\") == 1",
+      "assert from_roman(\"IV\") == 4",
+      "assert from_roman(\"IX\") == 9",
+      "assert from_roman(\"MCMXCIV\") == 1994",
+      "assert from_roman(\"MMMCMXCIX\") == 3999",
+      "assert from_roman(\"IIII\") is None",
+      "assert from_roman(\"VX\") is None",
+      "assert from_roman(\"IL\") is None",
+      "assert from_roman(\"\") is None",
+      "assert from_roman(\"iv\") is None",
+      "assert from_roman(\"ABC\") is None",
+      "assert from_roman(\"MMMM\") is None"
+    ],
+    "reference": "def from_roman(s):\n    pairs = [(\"M\", 1000), (\"CM\", 900), (\"D\", 500), (\"CD\", 400), (\"C\", 100),\n             (\"XC\", 90), (\"L\", 50), (\"XL\", 40), (\"X\", 10), (\"IX\", 9),\n             (\"V\", 5), (\"IV\", 4), (\"I\", 1)]\n    if not s or any(ch not in \"IVXLCDM\" for ch in s):\n        return None\n    total, i = 0, 0\n    for symbol, value in pairs:\n        while s.startswith(symbol, i):\n            total += value\n            i += len(symbol)\n    if i != len(s) or total > 3999:\n        return None\n    rest, encoded = total, \"\"\n    for symbol, value in pairs:\n        count, rest = divmod(rest, value)\n        encoded += symbol * count\n    return total if encoded == s else None"
+  }
+]
